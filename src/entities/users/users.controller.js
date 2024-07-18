@@ -94,12 +94,12 @@ export const updateUserProfile = async (req, res) => {
 
 }
 
-export const deleteUser = async (req, res) => {
+export const deleteUserById = async (req, res) => {
     try {
         const userId = req.params.id
 
         const userDelete = await User.findByIdAndDelete({ _id: userId })
-        
+
         if (!userDelete) {
             return res.status(404).json({
                 success: false,
@@ -109,6 +109,37 @@ export const deleteUser = async (req, res) => {
         return res.status(200).json({
             success: true,
             Message: "User deleted successfully",
+        })
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Error log in user",
+            error: error.message
+        })
+    }
+
+}
+
+export const updateUserRole = async (req, res) => {
+    try {
+        const userId = req.params.id
+        const role= req.body.role
+
+        if (!role) {
+            return res.status(400).json({
+                success: false,
+                Message: "Not column updated",
+            })
+        }
+        await User.findOneAndUpdate({ _id: userId },
+            {
+                role: role
+            })
+
+        return res.status(200).json({
+            success: true,
+            Message: "User role updated",
         })
 
     } catch (error) {
