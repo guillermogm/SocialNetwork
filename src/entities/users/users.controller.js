@@ -3,6 +3,22 @@ import bcrypt, { hash } from "bcrypt"
 
 export const getAllUsers = async (req, res) => {
     try {
+        const email=req.query.email
+        if(email){
+            const emailUser= await User.findOne({email:email})
+            if(!emailUser){
+                return res.status(400).json({
+                    success: true,
+                    Message: "Not user found with this email",
+                    data: emailUser
+                })
+            }
+            return res.status(200).json({
+                success: true,
+                Message: "User found",
+                data: emailUser
+            })
+        }
         const allUsers = await User.find()
 
         return res.status(200).json({
