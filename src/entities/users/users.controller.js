@@ -56,7 +56,7 @@ export const updateUserProfile = async (req, res) => {
         if(password){
             hashPassword=bcrypt.hashSync(password, parseInt(process.env.SALT_ROUNDS))
         }
-        const userProfileUpdate = await User.findOneAndUpdate({_id:userId},
+        await User.findOneAndUpdate({_id:userId},
             {
                 name:name,
                 email:email, 
