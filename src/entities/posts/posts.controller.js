@@ -103,7 +103,7 @@ export const updatePost = async (req, res) => {
 
             return res.status(200).json({
                 success: true,
-                Message: "User updated successfully",
+                Message: "Post updated successfully",
             })
         }
         const postUpdated=await Post.updateOne({
