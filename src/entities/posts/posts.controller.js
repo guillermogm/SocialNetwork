@@ -176,7 +176,13 @@ export const getPostById = async (req, res) => {
     try {
         const postId = req.params.id
 
-        const post = await Post.findById({_id:postId})
+        const post = await Post.findById({ _id: postId })
+        if (!post) {
+            return res.status(404).json({
+                success: false,
+                Message: "No post with that Id.",
+            })
+        }
         return res.status(200).json({
             success: true,
             message: "Post retrived successfully",
@@ -205,6 +211,47 @@ export const getUserPosts = async (req, res) => {
         return res.status(500).json({
             success: false,
             message: "Error retriving post",
+            error: error.message
+        })
+    }
+}
+
+export const likePost = async (req, res) => {
+    try {
+        const postId = req.params.id
+        const userId = req.tokenData.id
+        
+        const post = await Post.findById({ _id: postId })
+
+        if (!post) {
+            return res.status(404).json({
+                success: false,
+                Message: "No post with that Id.",
+            })
+        }
+        if(post.likes.includes(userId)){
+           
+            post.likes.splice(post.likes.indexOf(userId),1)
+           
+           const updateLike= await post.save()
+
+           return res.status(200).json({
+            succes:true,
+            message:"User dislike this Post.",
+            data:updateLike
+           })
+        }
+        post.likes.push(userId)
+        const updateLike= await post.save()
+        return res.status(200).json({
+            success: true,
+            message: "User likes this Post.",
+            data: updateLike
+        })
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: "Error liking post",
             error: error.message
         })
     }
