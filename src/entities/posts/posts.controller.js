@@ -190,3 +190,22 @@ export const getPostById = async (req, res) => {
         })
     }
 }
+
+export const getUserPosts = async (req, res) => {
+    try {
+        const userId = req.params.user
+
+        const userPosts = await Post.find({ user: userId })
+        return res.status(200).json({
+            success: true,
+            message: "Posts retrived successfully",
+            data: userPosts
+        })
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: "Error retriving post",
+            error: error.message
+        })
+    }
+}
