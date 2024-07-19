@@ -81,7 +81,7 @@ export const updatePost = async (req, res) => {
         const userRole = req.tokenData.role
         const postId = req.params.id
         const { title, content } = req.body
-        console.log(userId);
+
         if (!title && !content) {
             return res.status(404).json({
                 success: false,
@@ -103,10 +103,10 @@ export const updatePost = async (req, res) => {
 
             return res.status(200).json({
                 success: true,
-                Message: "User updated successfully",
+                Message: "Post updated successfully",
             })
         }
-        const postUpdated=await Post.updateOne({
+        const postUpdated=await Post.findOneAndUpdate({
             _id:postId,
             user:userId
         },{
@@ -117,7 +117,7 @@ export const updatePost = async (req, res) => {
         if (!postUpdated) {
             return res.status(404).json({
                 success: false,
-                Message: "No post with that Id",
+                Message: "No post with that Id or is not your post.",
             })
         }
 
@@ -129,6 +129,25 @@ export const updatePost = async (req, res) => {
         return res.status(500).json({
             success: false,
             message: "Error updating post",
+            error: error.message
+        })
+    }
+}
+
+export const getOwnPosts = async (req, res) => {
+    try {
+        const userId = req.tokenData.id
+
+       const userPosts= await Post.find({user:userId})
+        return res.status(200).json({
+            success: true,
+            message: "Posts retrived successfully",
+            data:userPosts
+        })
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: "Error retriving post",
             error: error.message
         })
     }
