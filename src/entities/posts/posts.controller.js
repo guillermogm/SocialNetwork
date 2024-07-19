@@ -152,3 +152,21 @@ export const getOwnPosts = async (req, res) => {
         })
     }
 }
+
+export const getAllPosts = async (req, res) => {
+    try {
+
+       const allPosts= await Post.find()
+        return res.status(200).json({
+            success: true,
+            message: "Posts retrived successfully",
+            data:allPosts
+        })
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: "Error retriving post",
+            error: error.message
+        })
+    }
+}
