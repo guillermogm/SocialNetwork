@@ -48,7 +48,7 @@ export const deletePostById = async (req, res) => {
                 Message: "User deleted successfully",
             })
         }
-        const postDeleted= await Post.findOneAndDelete({ 
+        const postDeleted = await Post.findOneAndDelete({
             _id: postId,
             user: userId
         })
@@ -89,7 +89,7 @@ export const updatePost = async (req, res) => {
             })
         }
         if (userRole !== "user") {
-            const postUpdated = await Post.findByIdAndUpdate({ _id: postId },{
+            const postUpdated = await Post.findByIdAndUpdate({ _id: postId }, {
                 title: title,
                 content: content
             })
@@ -106,14 +106,14 @@ export const updatePost = async (req, res) => {
                 Message: "Post updated successfully",
             })
         }
-        const postUpdated=await Post.findOneAndUpdate({
-            _id:postId,
-            user:userId
-        },{
+        const postUpdated = await Post.findOneAndUpdate({
+            _id: postId,
+            user: userId
+        }, {
             title: title,
             content: content
         })
-        
+
         if (!postUpdated) {
             return res.status(404).json({
                 success: false,
@@ -138,11 +138,11 @@ export const getOwnPosts = async (req, res) => {
     try {
         const userId = req.tokenData.id
 
-       const userPosts= await Post.find({user:userId})
+        const userPosts = await Post.find({ user: userId })
         return res.status(200).json({
             success: true,
             message: "Posts retrived successfully",
-            data:userPosts
+            data: userPosts
         })
     } catch (error) {
         return res.status(500).json({
@@ -156,11 +156,31 @@ export const getOwnPosts = async (req, res) => {
 export const getAllPosts = async (req, res) => {
     try {
 
-       const allPosts= await Post.find()
+        const allPosts = await Post.find()
         return res.status(200).json({
             success: true,
             message: "Posts retrived successfully",
-            data:allPosts
+            data: allPosts
+        })
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: "Error retriving posts",
+            error: error.message
+        })
+    }
+}
+
+
+export const getPostById = async (req, res) => {
+    try {
+        const postId = req.params.id
+
+        const post = await Post.findById({_id:postId})
+        return res.status(200).json({
+            success: true,
+            message: "Post retrived successfully",
+            data: post
         })
     } catch (error) {
         return res.status(500).json({
