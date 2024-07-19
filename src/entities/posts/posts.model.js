@@ -17,7 +17,7 @@ const postSchema = new Schema(
         },
         likes: [{
             type: Schema.Types.ObjectId,
-            ref: "user"
+            ref: "User"
         }]
     },
     {
@@ -26,6 +26,6 @@ const postSchema = new Schema(
     }
 )
 
-const Post = model("post", postSchema)
+const Post = model("Post", postSchema)
 
 export default Post

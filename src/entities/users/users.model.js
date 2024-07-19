@@ -23,11 +23,11 @@ const userSchema = new Schema(
         },
         followers: [{
             type: Schema.Types.ObjectId,
-            ref: "user"
+            ref: "User"
         }],
         following: [{
             type: Schema.Types.ObjectId,
-            ref: "user"
+            ref: "User"
         }]
     },
     {
@@ -36,6 +36,6 @@ const userSchema = new Schema(
     }
 )
 
-const User = model("user", userSchema)
+const User = model("User", userSchema)
 
 export default User
