@@ -205,3 +205,26 @@ export const userFollow = async (req, res) => {
     }
 
 }
+
+export const getFollowingPost = async (req, res) => {
+    try {
+        const userId= req.tokenData.id
+        
+        const currentUser = await User.findById(userId).populate("following");
+
+        const followingUserIds = currentUser.following.map(user => user._id);
+        
+        const posts = await Post.find({ user: { $in: followingUserIds } }).populate("user");
+
+        return res.status(200).json({
+            success: true,
+            message: "Posts retrived successfully",
+        })
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: "Error retriving posts",
+            error: error.message
+        })
+    }
+}
