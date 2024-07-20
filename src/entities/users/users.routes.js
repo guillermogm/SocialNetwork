@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getAllUsers, getUserProfile, updateUserProfile, deleteUserById, updateUserRole} from "./users.controller.js";
+import { getAllUsers, getUserProfile, updateUserProfile, deleteUserById, updateUserRole, userFollow} from "./users.controller.js";
 import {auth} from "../../middleware/auth.js"
 import { isSuperAdmin } from "../../middleware/isSuperAdmin.js";
 
@@ -9,6 +9,7 @@ router.get("/", auth,isSuperAdmin, getAllUsers)
 router.get("/profile", auth, getUserProfile)
 router.put("/profile", auth, updateUserProfile)
 router.delete("/:id",auth,isSuperAdmin, deleteUserById)
+router.put("/follow/:userId",auth, userFollow)
 router.put("/:id/role",auth,isSuperAdmin, updateUserRole)
 
 export {router}
