@@ -40,7 +40,7 @@ export const getAllUsers = async (req, res) => {
 export const getUserProfile = async (req, res) => {
     try {
         const userId = req.tokenData.id
-        const userProfile = await User.findOne({ _id: userId })
+        const userProfile = await User.findById(userId)
 
         return res.status(200).json({
             success: true,
@@ -72,7 +72,7 @@ export const updateUserProfile = async (req, res) => {
         if (password) {
             hashPassword = bcrypt.hashSync(password, parseInt(process.env.SALT_ROUNDS))
         }
-        await User.findOneAndUpdate({ _id: userId },
+        await User.findOneAndUpdate(userId,
             {
                 name: name,
                 email: email,
@@ -98,7 +98,7 @@ export const deleteUserById = async (req, res) => {
     try {
         const userId = req.params.id
 
-        const userDelete = await User.findByIdAndDelete({ _id: userId })
+        const userDelete = await User.findByIdAndDelete(userId)
 
         if (!userDelete) {
             return res.status(404).json({
@@ -132,7 +132,7 @@ export const updateUserRole = async (req, res) => {
                 Message: "Not column updated",
             })
         }
-        await User.findOneAndUpdate({ _id: userId },
+        await User.findOneAndUpdate(userId,
             {
                 role: role
             })

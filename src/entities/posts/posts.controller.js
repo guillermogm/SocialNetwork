@@ -36,7 +36,7 @@ export const deletePostById = async (req, res) => {
         const postId = req.params.id
 
         if (userRole !== "user") {
-            const postDeleted = await Post.findByIdAndDelete({ _id: postId })
+            const postDeleted = await Post.findByIdAndDelete(postId)
             if (!postDeleted) {
                 return res.status(404).json({
                     success: false,
@@ -89,7 +89,7 @@ export const updatePost = async (req, res) => {
             })
         }
         if (userRole !== "user") {
-            const postUpdated = await Post.findByIdAndUpdate({ _id: postId }, {
+            const postUpdated = await Post.findByIdAndUpdate(postId, {
                 title: title,
                 content: content
             })
@@ -176,7 +176,7 @@ export const getPostById = async (req, res) => {
     try {
         const postId = req.params.id
 
-        const post = await Post.findById({ _id: postId })
+        const post = await Post.findById(postId)
         if (!post) {
             return res.status(404).json({
                 success: false,
@@ -201,7 +201,7 @@ export const getUserPosts = async (req, res) => {
     try {
         const userId = req.params.user
 
-        const userPosts = await Post.find({ user: userId })
+        const userPosts = await Post.findById(userId)
         return res.status(200).json({
             success: true,
             message: "Posts retrived successfully",
@@ -221,7 +221,7 @@ export const likePost = async (req, res) => {
         const postId = req.params.id
         const userId = req.tokenData.id
         
-        const post = await Post.findById({ _id: postId })
+        const post = await Post.findById(postId)
 
         if (!post) {
             return res.status(404).json({
