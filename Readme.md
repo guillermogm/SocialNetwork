@@ -265,31 +265,27 @@ There is an export with all the endpoints in Thunderclient in the folder HTTP. I
 
 - **Get all posts**
 
-          GET http://localhost:5000/api/posts
+          GET http://localhost:4010/api/posts/
 
-    auth:
-
-    ```js
-        auth token
-    ```
 
 <br>
 
 - **Get post by id**
 
-          GET http://localhost:5000/api/posts/:id
-
-    auth:
-
-    ```js
-        auth token
-    ```
+          GET http://localhost:4010/api/posts/:id
 
 <br>
 
 - **Get posts by a user** 
 
-          GET http://localhost:5000/api/posts/users/:id-user
+          GET http://localhost:4010/api/posts/users/:user
+
+<br>
+
+- **Like and dislike post**
+
+          PUT http://localhost:4010/api/posts/like/:id
+
 
     auth:
 
@@ -299,10 +295,9 @@ There is an export with all the endpoints in Thunderclient in the folder HTTP. I
 
 <br>
 
+- **Get following posts**
 
-- **Like and unlike post**
-
-          PUT http://localhost:5000/api/posts/like/:id
+          GET http://localhost:4010/api/posts/timeline
 
 
     auth:
@@ -310,6 +305,7 @@ There is an export with all the endpoints in Thunderclient in the folder HTTP. I
     ```js
         auth token
     ```
+
 </details>
 
 

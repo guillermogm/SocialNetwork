@@ -202,7 +202,7 @@ export const getUserPosts = async (req, res) => {
     try {
         const userId = req.params.user
 
-        const userPosts = await Post.findById(userId)
+        const userPosts = await Post.find({user:userId})
         return res.status(200).json({
             success: true,
             message: "Posts retrived successfully",
