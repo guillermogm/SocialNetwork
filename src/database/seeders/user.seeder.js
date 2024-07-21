@@ -7,9 +7,9 @@ export const userSeeder = async () => {
     try {
         await mongoose.connect(process.env.MONGO_URI, {});
 
-        const users = [
+         const users = [
             {
-                _id: new mongoose.Types.ObjectId(),
+                _id: "627351f43a5f615a3c123456",
                 name: "Emily Chen",
                 email: "emilychen@email.com",
                 password: bcrypt.hashSync("123456789", parseInt(process.env.SALT_ROUNDS)),
@@ -17,7 +17,7 @@ export const userSeeder = async () => {
                 following: []
             },
             {
-                _id: new mongoose.Types.ObjectId(),
+                _id: "627351f43a5f615a3c789012",
                 name: "Oliver Brown",
                 email: "oliverbrown@email.com",
                 password: bcrypt.hashSync("123456789", parseInt(process.env.SALT_ROUNDS)),
@@ -25,7 +25,7 @@ export const userSeeder = async () => {
                 following: []
             },
             {
-                _id: new mongoose.Types.ObjectId(),
+                _id: "627351f43a5f615a3c901234",
                 name: "Ava Lee",
                 email: "avalee@email.com",
                 password: bcrypt.hashSync("123456789", parseInt(process.env.SALT_ROUNDS)),
@@ -33,7 +33,7 @@ export const userSeeder = async () => {
                 following: []
             },
             {
-                _id: new mongoose.Types.ObjectId(),
+                _id: "627351f43a5f615a3c456789",
                 name: "Ethan Hall",
                 email: "ethanhall@email.com",
                 password: bcrypt.hashSync("123456789", parseInt(process.env.SALT_ROUNDS)),
@@ -41,7 +41,7 @@ export const userSeeder = async () => {
                 following: []
             },
             {
-                _id: new mongoose.Types.ObjectId(),
+                _id: "627351f43a5f615a3c111111",
                 name: "Lily Patel",
                 email: "lilypatel@email.com",
                 password: bcrypt.hashSync("123456789", parseInt(process.env.SALT_ROUNDS)),
@@ -49,7 +49,7 @@ export const userSeeder = async () => {
                 following: []
             },
             {
-                _id: new mongoose.Types.ObjectId(),
+                _id: "627351f43a5f615a3c222222",
                 name: "Logan Brooks",
                 email: "loganbrooks@email.com",
                 password: bcrypt.hashSync("123456789", parseInt(process.env.SALT_ROUNDS)),
@@ -57,7 +57,7 @@ export const userSeeder = async () => {
                 following: []
             },
             {
-                _id: new mongoose.Types.ObjectId(),
+                _id: "627351f43a5f615a3c333333",
                 name: "Sophia Garcia",
                 email: "sophiagarcia@email.com",
                 password: bcrypt.hashSync("123456789", parseInt(process.env.SALT_ROUNDS)),
@@ -65,7 +65,7 @@ export const userSeeder = async () => {
                 following: []
             },
             {
-                _id: new mongoose.Types.ObjectId(),
+                _id: "627351f43a5f615a3c444444",
                 name: "Alexander Martin",
                 email: "alexandermartin@email.com",
                 password: bcrypt.hashSync("123456789", parseInt(process.env.SALT_ROUNDS)),
@@ -73,7 +73,7 @@ export const userSeeder = async () => {
                 following: []
             },
             {
-                _id: new mongoose.Types.ObjectId(),
+                _id: "627351f43a5f615a3c555555",
                 name: "Mia Davis",
                 email: "miadavis@email.com",
                 password: bcrypt.hashSync("123456789", parseInt(process.env.SALT_ROUNDS)),
@@ -81,7 +81,7 @@ export const userSeeder = async () => {
                 following: []
             },
             {
-                _id: new mongoose.Types.ObjectId(),
+                _id: "627351f43a5f615a3c666666",
                 name: "Benjamin White",
                 email: "benjaminwhite@email.com",
                 password: bcrypt.hashSync("123456789", parseInt(process.env.SALT_ROUNDS)),
@@ -141,10 +141,11 @@ export const userSeeder = async () => {
         users[9].following = [users[7]._id, users[3]._id];
 
 		await User.insertMany(users);
-
+        
         console.log("============================");
         console.log("Users seeder successfully");
         console.log("============================");
+        
     } catch (error) {
         console.log("============================");
         console.log(error);
@@ -153,3 +154,4 @@ export const userSeeder = async () => {
         await mongoose.connection.close();
     }
 };
+
