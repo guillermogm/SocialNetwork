@@ -312,9 +312,9 @@ There is an export with all the endpoints in Thunderclient in the folder HTTP. I
 <div id="futuras-funcionalidades"> </div>
 
 ## Future features ⚙️
-[ ] Add to post the posibility of upload images and  videos.
-[ ] Collect all errors in a log file.
-[ ] Add pagination to some views.
+[ ] Add to post the posibility of upload images and  videos. <br>
+[ ] Collect all errors in a log file.<br>
+[ ] Add pagination to some views.<br>
 
 <div id="contribuciones"></div>
 
