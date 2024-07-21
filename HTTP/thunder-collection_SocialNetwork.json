@@ -1,0 +1,322 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "SocialNetwork",
+    "collectionId": "55477896-9b9c-4525-9c68-dfd923f964ae",
+    "dateExported": "2024-07-21T17:30:10.307Z",
+    "version": "1.2",
+    "folders": [
+        {
+            "_id": "fe33f24d-e1f3-4c2f-aff8-fe7252dd8710",
+            "name": "Users",
+            "containerId": "",
+            "created": "2024-07-17T16:55:32.114Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "950e70da-dbc0-463a-ac1f-2a747d98414a",
+            "name": "Posts",
+            "containerId": "",
+            "created": "2024-07-17T16:55:40.762Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "d825b70a-d9ea-46f0-8c1e-124a2001677e",
+            "name": "Auth",
+            "containerId": "",
+            "created": "2024-07-17T17:29:09.842Z",
+            "sortNum": 30000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "ea59b45e-fee7-4931-a41f-eb892a0354f3",
+            "colId": "55477896-9b9c-4525-9c68-dfd923f964ae",
+            "containerId": "d825b70a-d9ea-46f0-8c1e-124a2001677e",
+            "name": "PostRegister",
+            "url": "http://localhost:4010/api/auth/register",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-07-17T17:29:24.986Z",
+            "modified": "2024-07-21T16:13:30.211Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "        {\r\n            \"email\": \"emily@email.com\",\r\n            \"password\": \"123456789\"\r\n        }",
+                "form": []
+            }
+        },
+        {
+            "_id": "1bb00397-3518-48bc-8314-9b9e9b5f8bb1",
+            "colId": "55477896-9b9c-4525-9c68-dfd923f964ae",
+            "containerId": "d825b70a-d9ea-46f0-8c1e-124a2001677e",
+            "name": "PostLogin",
+            "url": "http://localhost:4010/api/auth/login",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-07-17T17:40:44.785Z",
+            "modified": "2024-07-21T17:25:16.213Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "        {\n            \"email\": \"loganbrooks@email.com\",\n            \"password\": \"123456789\"\n        }",
+                "form": []
+            }
+        },
+        {
+            "_id": "47bce07c-a728-41d7-bff9-168ac6f755a8",
+            "colId": "55477896-9b9c-4525-9c68-dfd923f964ae",
+            "containerId": "fe33f24d-e1f3-4c2f-aff8-fe7252dd8710",
+            "name": "GetAllUsers",
+            "url": "http://localhost:4010/api/users/?email=oliverbrown@email.com",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-07-17T17:52:38.569Z",
+            "modified": "2024-07-21T16:27:01.711Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "email",
+                    "value": "oliverbrown@email.com",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmOGQwYzBjOWI4YjRiMmU4YzJlMmI3MiIsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTcyMTU3OTEwNiwiZXhwIjoxNzIxNTg2MzA2fQ.ixLgAGJWWv6wlOdtiRipMlscP1cHNEyil23RXQqUf9E"
+            }
+        },
+        {
+            "_id": "a6237461-99a0-4dc1-b18a-1ef616fb6b11",
+            "colId": "55477896-9b9c-4525-9c68-dfd923f964ae",
+            "containerId": "fe33f24d-e1f3-4c2f-aff8-fe7252dd8710",
+            "name": "GetUserProfile",
+            "url": "http://localhost:4010/api/users/profile",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-07-17T19:53:32.330Z",
+            "modified": "2024-07-17T19:54:55.951Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OTgxZTIxMjk0NDc5MWVhZTcwYjhkOCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzIxMjQ2MDg1LCJleHAiOjE3MjEyNTMyODV9.rlEl9OfSOd7dKZTYjT1ddUXmAatbfpbzjRa1eTbFw5g"
+            }
+        },
+        {
+            "_id": "d6423351-dd01-480a-b436-06ca0c6e3421",
+            "colId": "55477896-9b9c-4525-9c68-dfd923f964ae",
+            "containerId": "fe33f24d-e1f3-4c2f-aff8-fe7252dd8710",
+            "name": "UpdateUserProfile",
+            "url": "http://localhost:4010/api/users/profile",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2024-07-17T20:10:22.704Z",
+            "modified": "2024-07-21T16:18:19.309Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "        {\r\n            \"email\": \"change@email.com\",\r\n            \"password\": \"123498765\"\r\n        }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNzM1MWY0M2E1ZjYxNWEzYzEyMzQ1NiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzIxNTc4NTYzLCJleHAiOjE3MjE1ODU3NjN9.fXvF9Ftvn2si9k0RLtxvXHM5ytGM0pBtqtW9IJZ4IMQ"
+            }
+        },
+        {
+            "_id": "defdbc7d-20fa-4cfb-9b70-32e92a94e8d0",
+            "colId": "55477896-9b9c-4525-9c68-dfd923f964ae",
+            "containerId": "fe33f24d-e1f3-4c2f-aff8-fe7252dd8710",
+            "name": "DeleteUserById",
+            "url": "http://localhost:4010/api/users/627351f43a5f615a3c789012",
+            "method": "DELETE",
+            "sortNum": 70000,
+            "created": "2024-07-18T18:56:12.677Z",
+            "modified": "2024-07-21T16:36:44.067Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmOGQwYzBjOWI4YjRiMmU4YzJlMmI3MiIsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTcyMTU3OTEwNiwiZXhwIjoxNzIxNTg2MzA2fQ.ixLgAGJWWv6wlOdtiRipMlscP1cHNEyil23RXQqUf9E"
+            }
+        },
+        {
+            "_id": "e331e4ef-62db-493d-b83a-7ace22d01b75",
+            "colId": "55477896-9b9c-4525-9c68-dfd923f964ae",
+            "containerId": "fe33f24d-e1f3-4c2f-aff8-fe7252dd8710",
+            "name": "UpdateUserRole",
+            "url": "http://localhost:4010/api/users/627351f43a5f615a3c456789/role",
+            "method": "PUT",
+            "sortNum": 80000,
+            "created": "2024-07-18T19:16:32.560Z",
+            "modified": "2024-07-21T16:41:36.133Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"role\":\"admin\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmOGQwYzBjOWI4YjRiMmU4YzJlMmI3MiIsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTcyMTU3OTEwNiwiZXhwIjoxNzIxNTg2MzA2fQ.ixLgAGJWWv6wlOdtiRipMlscP1cHNEyil23RXQqUf9E"
+            }
+        },
+        {
+            "_id": "5599fdea-22d4-4c43-b5cc-14bcea605239",
+            "colId": "55477896-9b9c-4525-9c68-dfd923f964ae",
+            "containerId": "950e70da-dbc0-463a-ac1f-2a747d98414a",
+            "name": "CreatePost",
+            "url": "http://localhost:4010/api/posts/",
+            "method": "POST",
+            "sortNum": 90000,
+            "created": "2024-07-19T19:00:03.502Z",
+            "modified": "2024-07-21T16:53:31.687Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\":\"Trial Post\",\n  \"content\":\"This is a Trial post.\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNzM1MWY0M2E1ZjYxNWEzYzEyMzQ1NiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzIxNTc4NTYzLCJleHAiOjE3MjE1ODU3NjN9.fXvF9Ftvn2si9k0RLtxvXHM5ytGM0pBtqtW9IJZ4IMQ"
+            }
+        },
+        {
+            "_id": "d26421d2-db94-40c0-b9bd-c671d9ced7b7",
+            "colId": "55477896-9b9c-4525-9c68-dfd923f964ae",
+            "containerId": "950e70da-dbc0-463a-ac1f-2a747d98414a",
+            "name": "DeletePostById",
+            "url": "http://localhost:4010/api/posts/669d2720a757101eba03f787",
+            "method": "DELETE",
+            "sortNum": 100000,
+            "created": "2024-07-19T19:25:08.867Z",
+            "modified": "2024-07-21T16:56:32.386Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmOGQwYzBjOWI4YjRiMmU4YzJlMmI3MiIsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTcyMTU4MDk3NywiZXhwIjoxNzIxNTg4MTc3fQ.4-4Tl7vJOM50XtEeaSSp_Vnwr_UtVRXWUdVk4VF3pOo"
+            }
+        },
+        {
+            "_id": "5396aabc-7d50-40f3-bae2-2676a395482d",
+            "colId": "55477896-9b9c-4525-9c68-dfd923f964ae",
+            "containerId": "950e70da-dbc0-463a-ac1f-2a747d98414a",
+            "name": "UpdatepostById",
+            "url": "http://localhost:4010/api/posts/669d2720a757101eba03f786",
+            "method": "PUT",
+            "sortNum": 110000,
+            "created": "2024-07-19T19:48:28.737Z",
+            "modified": "2024-07-21T17:02:48.483Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\":\"Update\",\n  \"content\":\"Updated\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmOGQwYzBjOWI4YjRiMmU4YzJlMmI3MiIsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTcyMTU4MDk3NywiZXhwIjoxNzIxNTg4MTc3fQ.4-4Tl7vJOM50XtEeaSSp_Vnwr_UtVRXWUdVk4VF3pOo"
+            }
+        },
+        {
+            "_id": "13254845-5988-453f-bd17-600bfb590932",
+            "colId": "55477896-9b9c-4525-9c68-dfd923f964ae",
+            "containerId": "950e70da-dbc0-463a-ac1f-2a747d98414a",
+            "name": "GetOwnPosts",
+            "url": "http://localhost:4010/api/posts/own",
+            "method": "GET",
+            "sortNum": 120000,
+            "created": "2024-07-19T22:03:58.817Z",
+            "modified": "2024-07-21T17:04:44.945Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNzM1MWY0M2E1ZjYxNWEzYzEyMzQ1NiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzIxNTc4NTYzLCJleHAiOjE3MjE1ODU3NjN9.fXvF9Ftvn2si9k0RLtxvXHM5ytGM0pBtqtW9IJZ4IMQ"
+            }
+        },
+        {
+            "_id": "c0532769-b4a7-48ad-9136-66fd215478ea",
+            "colId": "55477896-9b9c-4525-9c68-dfd923f964ae",
+            "containerId": "950e70da-dbc0-463a-ac1f-2a747d98414a",
+            "name": "GetUserPosts",
+            "url": "http://localhost:4010/api/posts/users/627351f43a5f615a3c123456",
+            "method": "GET",
+            "sortNum": 125000,
+            "created": "2024-07-19T22:20:56.696Z",
+            "modified": "2024-07-21T17:14:09.992Z",
+            "headers": []
+        },
+        {
+            "_id": "d6536a19-61da-401a-9d51-845a78d96c91",
+            "colId": "55477896-9b9c-4525-9c68-dfd923f964ae",
+            "containerId": "950e70da-dbc0-463a-ac1f-2a747d98414a",
+            "name": "GetAllPosts",
+            "url": "http://localhost:4010/api/posts/",
+            "method": "GET",
+            "sortNum": 130000,
+            "created": "2024-07-19T22:10:40.798Z",
+            "modified": "2024-07-19T22:11:11.850Z",
+            "headers": []
+        },
+        {
+            "_id": "3c4ba9f4-01dc-4391-9710-97699852a55e",
+            "colId": "55477896-9b9c-4525-9c68-dfd923f964ae",
+            "containerId": "950e70da-dbc0-463a-ac1f-2a747d98414a",
+            "name": "GetPostById",
+            "url": "http://localhost:4010/api/posts/669d2720a757101eba03f786",
+            "method": "GET",
+            "sortNum": 140000,
+            "created": "2024-07-19T22:15:35.910Z",
+            "modified": "2024-07-21T17:08:00.463Z",
+            "headers": []
+        },
+        {
+            "_id": "cd74b10b-51b7-423d-8a4a-b4947018b8c6",
+            "colId": "55477896-9b9c-4525-9c68-dfd923f964ae",
+            "containerId": "950e70da-dbc0-463a-ac1f-2a747d98414a",
+            "name": "LikePost",
+            "url": "http://localhost:4010/api/posts/like/669d2720a757101eba03f775",
+            "method": "PUT",
+            "sortNum": 150000,
+            "created": "2024-07-19T22:41:48.960Z",
+            "modified": "2024-07-21T17:18:36.875Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNzM1MWY0M2E1ZjYxNWEzYzEyMzQ1NiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzIxNTc4NTYzLCJleHAiOjE3MjE1ODU3NjN9.fXvF9Ftvn2si9k0RLtxvXHM5ytGM0pBtqtW9IJZ4IMQ"
+            }
+        },
+        {
+            "_id": "084f3a9a-c822-4cf5-9334-6397a0eb6a4a",
+            "colId": "55477896-9b9c-4525-9c68-dfd923f964ae",
+            "containerId": "fe33f24d-e1f3-4c2f-aff8-fe7252dd8710",
+            "name": "FollowUser",
+            "url": "http://localhost:4010/api/users/follow/627351f43a5f615a3c666666",
+            "method": "PUT",
+            "sortNum": 160000,
+            "created": "2024-07-20T17:28:42.623Z",
+            "modified": "2024-07-21T16:48:20.917Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNzM1MWY0M2E1ZjYxNWEzYzEyMzQ1NiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzIxNTc4NTYzLCJleHAiOjE3MjE1ODU3NjN9.fXvF9Ftvn2si9k0RLtxvXHM5ytGM0pBtqtW9IJZ4IMQ"
+            }
+        },
+        {
+            "_id": "a4b09b35-b46b-4987-abfa-515b3363bd81",
+            "colId": "55477896-9b9c-4525-9c68-dfd923f964ae",
+            "containerId": "950e70da-dbc0-463a-ac1f-2a747d98414a",
+            "name": "GetFollowingPosts",
+            "url": "http://localhost:4010/api/posts/timeline",
+            "method": "GET",
+            "sortNum": 160000,
+            "created": "2024-07-21T10:00:41.763Z",
+            "modified": "2024-07-21T17:25:26.229Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNzM1MWY0M2E1ZjYxNWEzYzIyMjIyMiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzIxNTgyNzE2LCJleHAiOjE3MjE1ODk5MTZ9.aUPljcW5STamSfto7dVcH5IhJt8NT8OxaudMvSotMTo"
+            }
+        }
+    ],
+    "ref": "aEsZwD2kirnNpddyDJ-o7Q3KrFN18dxrnHdR_vLPPuEmI1GzuAFkWcMPd8vL-Pe2fYw5nm-YSt90HdpsLIFE8w"
+}
