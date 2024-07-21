@@ -1,3 +1,4 @@
+import Post from "../posts/posts.model.js";
 import User from "./users.model.js";
 import bcrypt, { hash } from "bcrypt"
 

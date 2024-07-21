@@ -1,3 +1,4 @@
+import User from "../users/users.model.js"
 import Post from "./posts.model.js"
 
 export const createPost = async (req, res) => {
@@ -252,6 +253,37 @@ export const likePost = async (req, res) => {
         return res.status(500).json({
             success: false,
             message: "Error liking post",
+            error: error.message
+        })
+    }
+}
+
+export const getFollowingPost = async (req, res) => {
+    try {
+        const userId= req.tokenData.id
+        
+        const currentUser = await User.findById(userId).populate("following");
+
+        if(currentUser.following.length < 1){
+            return res.status(404).json({
+                success: false,
+                message: "You aren't following any user."
+            })
+        }
+
+        const followingUserIds = currentUser.following.map(user => user._id);
+        
+        const posts = await Post.find({ user: { $in: followingUserIds } }).populate("user");
+
+        return res.status(200).json({
+            success: true,
+            message: "Posts retrived successfully",
+            data:posts
+        })
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: "Error retriving posts",
             error: error.message
         })
     }
