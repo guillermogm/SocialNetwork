@@ -1,5 +1,5 @@
 
-# Welcome to Tattoo Studio 🎨
+# Welcome to Social Network 📱
 
  ## Table of Contents 🗂️
 <details>
