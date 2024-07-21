@@ -46,7 +46,7 @@ export const deletePostById = async (req, res) => {
             }
             return res.status(200).json({
                 success: true,
-                Message: "User deleted successfully",
+                Message: "Post deleted successfully",
             })
         }
         const postDeleted = await Post.findOneAndDelete({
@@ -63,13 +63,13 @@ export const deletePostById = async (req, res) => {
 
         return res.status(200).json({
             success: true,
-            Message: "User deleted successfully",
+            Message: "Post deleted successfully",
         })
 
     } catch (error) {
         res.status(500).json({
             success: false,
-            message: "Error log in user",
+            message: "Error log in post",
             error: error.message
         })
     }
@@ -90,7 +90,7 @@ export const updatePost = async (req, res) => {
             })
         }
         if (userRole !== "user") {
-            const postUpdated = await Post.findByIdAndUpdate(postId, {
+            const postUpdated = await Post.findByIdAndUpdate({_id:postId}, {
                 title: title,
                 content: content
             })
@@ -202,7 +202,7 @@ export const getUserPosts = async (req, res) => {
     try {
         const userId = req.params.user
 
-        const userPosts = await Post.findById(userId)
+        const userPosts = await Post.find({user:userId})
         return res.status(200).json({
             success: true,
             message: "Posts retrived successfully",
