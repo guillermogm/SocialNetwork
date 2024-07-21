@@ -50,8 +50,8 @@ Tecnologies used:
 <a href="https://nodejs.org/es/">
     <img src= "https://img.shields.io/badge/node.js-026E00?style=for-the-badge&logo=node.js&logoColor=white"/>
 </a>
-<a href="https://www.typescriptlang.org/">
-    <img src= "https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white"/>
+<a href="https://mongoosejs.com/">
+    <img src= "https://img.shields.io/badge/-Mongoose-880000?style=for-the-badge&logo=node.js&logoColor=white"/>
 </a>
  </div>
 
@@ -76,7 +76,7 @@ There is an export with all the endpoints in Thunderclient in the folder HTTP. I
 
     ```js
         {
-            "email": "david@david.com",
+            "email": "emilychen@email.com",
             "password": "123456789"
         }
     ```
@@ -85,23 +85,24 @@ There is an export with all the endpoints in Thunderclient in the folder HTTP. I
 
 - **Login user**	
 
-          POST http://localhost:5000/api/auth/login
+          POST http://localhost:4010/api/auth/login
 
     body:
 
     ```js
         {
-            "email": "david@david.com",
+            "email": "emilychen@email.com",
             "password": "123456789"
         }
     ```
+
 </details>
 <details>
 <summary>Users</summary>
 
-- **View all users** (IS ADMIN)
+- **View all users** (IS SUPER_ADMIN)
 
-          GET http://localhost:5000/api/users
+          GET http://localhost:4010/api/users
 
     auth:
 
@@ -113,7 +114,7 @@ There is an export with all the endpoints in Thunderclient in the folder HTTP. I
 
 - **View user profile**
 
-          GET http://localhost:5000/api/users/profile
+          GET http://localhost:4010/api/users/profile
 
     auth:
 
@@ -125,16 +126,67 @@ There is an export with all the endpoints in Thunderclient in the folder HTTP. I
 
 - **Update user profile**
 
-          PUT http://localhost:5000/api/users/profile
+          PUT http://localhost:4010/api/users/profile
 
     body:
 
     ```js
         {
-            "email": "nuno@nuno.com",
-            "password": "123498765"
+            "email": "change@email.com"
         }
     ```
+
+    auth:
+
+    ```js
+        auth token
+    ```
+<br>
+
+- **Get user by email** (IS SUPER_ADMIN)
+
+          GET http://localhost:4010/api/users/?email=oliverbrown@email.com
+
+    auth:
+
+    ```js
+        auth token
+    ```
+<br>
+
+- **Delete user by id** (IS SUPER_ADMIN)
+
+          DELETE http://localhost:4010/api/users/:id
+    
+    auth:
+
+    ```js
+        auth token
+    ```
+<br>
+
+- **Change role by id** (IS SUPER_ADMIN)
+
+          PUT http://localhost:4010/api/users/:id
+
+    body:
+
+    ```js
+        {
+            "role": "admin"
+        }
+    ```
+
+    auth:
+
+    ```js
+        auth token
+    ```
+<br>
+
+- **Follow user**
+
+          PUT http://localhost:4010/api/users/follow/:userId
 
     auth:
 
@@ -148,13 +200,14 @@ There is an export with all the endpoints in Thunderclient in the folder HTTP. I
 
 - **Create post** 
 
-          POST http://localhost:5000/api/posts
+          POST http://localhost:4010/api/posts/
 
     body:
 
     ```js
         {
-            "description": "hello world"
+            "title": "Trial Post",
+            "content": "Trial Post"
         }
     ```
 
@@ -168,7 +221,7 @@ There is an export with all the endpoints in Thunderclient in the folder HTTP. I
 
 - **Delete post**
 
-          DLETE http://localhost:5000/api/posts/:id
+          DELETE http://localhost:4010/api/posts/:id
 
     auth:
 
@@ -180,13 +233,13 @@ There is an export with all the endpoints in Thunderclient in the folder HTTP. I
 
 - **Update post**
 
-          PUT http://localhost:5000/api/posts/:id
+          PUT http://localhost:4010/api/posts/:id
 
     body:
 
     ```js
         {
-            "description": "update succesfully"
+            "content": "update succesfully"
         }
     ```
 
@@ -200,7 +253,7 @@ There is an export with all the endpoints in Thunderclient in the folder HTTP. I
 
 - **Get own posts**
 
-          GET http://localhost:5000/api/posts/own
+          GET http://localhost:4010/api/posts/own
 
     auth:
 
@@ -264,7 +317,8 @@ There is an export with all the endpoints in Thunderclient in the folder HTTP. I
 
 ## Future features ⚙️
 [ ] Add to post the posibility of upload images and  videos.
-[ ] Collect all errors in a logs file
+[ ] Collect all errors in a log file.
+[ ] Add pagination to some views.
 
 <div id="contribuciones"></div>
 

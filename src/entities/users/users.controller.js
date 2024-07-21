@@ -6,7 +6,7 @@ export const getAllUsers = async (req, res) => {
     try {
         const email = req.query.email
         if (email) {
-            const emailUser = await User.findOne({ email: email })
+            const emailUser = await User.findOne({ email: email }).select("-password")
             if (!emailUser) {
                 return res.status(400).json({
                     success: false,
@@ -20,7 +20,7 @@ export const getAllUsers = async (req, res) => {
                 data: emailUser
             })
         }
-        const allUsers = await User.find()
+        const allUsers = await User.find().select("-password")
 
         return res.status(200).json({
             success: true,
@@ -41,7 +41,7 @@ export const getAllUsers = async (req, res) => {
 export const getUserProfile = async (req, res) => {
     try {
         const userId = req.tokenData.id
-        const userProfile = await User.findById(userId)
+        const userProfile = await User.findById(userId).select("-password")
 
         return res.status(200).json({
             success: true,
@@ -73,7 +73,7 @@ export const updateUserProfile = async (req, res) => {
         if (password) {
             hashPassword = bcrypt.hashSync(password, parseInt(process.env.SALT_ROUNDS))
         }
-        await User.findOneAndUpdate(userId,
+        await User.findOneAndUpdate({_id:userId},
             {
                 name: name,
                 email: email,
@@ -99,7 +99,7 @@ export const deleteUserById = async (req, res) => {
     try {
         const userId = req.params.id
 
-        const userDelete = await User.findByIdAndDelete(userId)
+        const userDelete = await User.findByIdAndDelete({_id:userId})
 
         if (!userDelete) {
             return res.status(404).json({
@@ -133,7 +133,7 @@ export const updateUserRole = async (req, res) => {
                 Message: "Not column updated",
             })
         }
-        await User.findOneAndUpdate(userId,
+        await User.findOneAndUpdate({_id:userId},
             {
                 role: role
             })
