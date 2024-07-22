@@ -162,7 +162,7 @@ export const userFollow = async (req, res) => {
         const following = await User.findById(ownId)
 
         if (userId === ownId) {
-            return res.status(40).json({
+            return res.status(400).json({
                 success: false,
                 message: "You con't follow yourself.",
             })
