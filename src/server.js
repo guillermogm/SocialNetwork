@@ -2,9 +2,12 @@ import express from "express"
 import "dotenv/config"
 import { dbConnection } from "./database/db.js"
 import { router } from "./router.js"
+import cors from "cors";
 
 const app= express()
 const PORT= process.env.PORT || 4010
+app.use(cors())
+
 app.use(express.json()) 
 
 app.get("/healthy",(_,res) =>{
