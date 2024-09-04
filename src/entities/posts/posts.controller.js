@@ -237,7 +237,7 @@ export const likePost = async (req, res) => {
            const updateLike= await post.save()
 
            return res.status(200).json({
-            succes:true,
+            success:true,
             message:"User dislike this Post.",
             data:updateLike
            })
